@@ -1,0 +1,172 @@
+# touch file.txt  //Create new file
+file.txt
+
+# cat file2.txt   // New File
+     1  Hello Friends!
+     2  How are you?
+
+# cat file1.txt file2.txt > data.txt  //Merge two file content into another
+1  Hello Friends!
+2  How are you?
+
+# grep -h "Agni" data.txt //Search the line "Agni"
+
+# grep -h "Agni" data.txt //Search the no of word "Agni"
+
+# wc data.txt
+3 7 36  //3 -> line , 7->word , 36->no of char incl space
+
+# wc -l data.txt //l-> line, w-> word , c->no of char incl space
+
+# sort file1 file2 | unique  // Shows the unique lines except dublicate
+
+# ls | grep "^[aeiou]"   //Starting char with Vowel
+
+#ls | grep -F "file" //Show the "file" present
+
+# ls | grep -c "file" // No. of content
+
+# pwd  //Which dir you are in
+/home/ubuntu18
+
+# ls | wc -l   //Total no of contents
+6
+
+# ls   //Show 
+LINUX      file2.txt  filemerge.txt
+file1.txt  file3.txt  man
+
+# mv file.txt newfile.txt  //Rename | Move 
+
+# who -q  //Total no of user
+ users=0
+
+# tty
+/dev/tty1
+
+# date +%d/%m/%Y
+29/07/2022
+
+# grep -o [aeiou] file2.txt | wc -l //Total no of voels in a file
+
+# ls -l
+total 0
+drwxr-xr-x 1 ubuntu18 ubuntu 4096 Jul 29 10:41 LINUX-rw-r--r-- 1 ubuntu ubuntu    0 Jul 29 10:49 file1.txt
+-rw-r--r-- 1 ubuntu18 ubuntu   28 Jul 29 10:50 file2.txt
+-rw-r--r-- 1 ubuntu18 ubuntu   17 Jul 29 10:51 file3.txt
+-rw-r--r-- 1 ubuntu18 ubuntu   45 Jul 29 10:52 filemerge.txt
+-rw-r--r-- 1 ubuntu18 ubuntu    0 Jul 20 10:15 man
+
+# w  //Ideal user 
+ 13:38:37 up  2:59,  0 users,  load average: 0.52, 0.58, 0.59
+USER     TTY      FROM             LOGIN@   IDME   JOPU   PMNU WTTT
+
+# ls | wc -l  // No of contents
+6
+
+# ls -A | wc -l //No of contents include hidden
+12
+
+# echo "12+5" |bc 
+17
+
+#cal
+calender
+ 
+# ls -la | grep "rwx"  //ls -la including all hidden file
+
+# nano file.txt //Create Program/Shell file
+### chmod 777 file.txt //Permission 
+
+# read -s -p "Enter Password: "  pswd   
+echo -e "\nYour password is: " $pswd
+
+echo "SELECT YOUR FAVORITE OPTION";
+echo "1. UERS CURRENTLY LOGIN"
+echo "2. CALENDER"
+echo "3. DATE IN FORMAT:DD/MM/YYYY"
+echo "4. Exit from menu "
+echo -n "Enter your menu choice [1-4]"
+while :
+do
+read choice
+case $choice in
+  1)  echo "You have selected the option 1"
+          echo "$(w)";;
+  2)  echo "You have selected the option 2"
+          echo "$(cal)";;
+  3)  echo "You have selected the option 3"
+          echo "$(date +%d/%m/%y)";;
+  4)  echo "Quitting ..."
+        exit;;
+  *) echo "invalid option";;
+
+ esac
+ echo -n "Enter your menu choice [1-4]: "
+ done
+
+
+### // Execute the user login and display the message. 
+h=$(date +"%H")
+if [ $h -gt 6 -a $h -le 12 ]
+then
+echo Good Morning
+elif [ $h -gt 12 -a $h -le 16 ]
+then
+echo Good Afternoon
+elif [ $h -gt 16 -a $h -le 20 ]
+then
+echo Good Evening
+else
+echo Good Night
+fi
+
+### //Leap Year
+#!/bin/sh
+echo "Enter the year:" 
+read leap
+if [ `expr $leap % 400` -eq 0 ]
+then
+echo leap year
+elif [ `expr $leap % 100` -eq 0 ]
+then
+echo not a leap year
+elif [ `expr $leap % 4` -eq 0 ]
+then
+echo leap year
+else
+echo not a leap year
+fi
+
+###  //Greatest of 3 number
+#!/bin/sh
+echo -n "Enter Num 1:"
+read num1
+echo -n "Enter Num 2:"
+read num2
+echo -n "Enter Num 3:"
+read num3
+if[$num1 -gt $num2]&&[$num1 -gt $num3]
+then
+echo "$num1 is Greatest"
+elif[$num2 -gt $num1]&&[$num2 -gt $num3]
+then
+echo "$num2 is Greatest"
+else
+echo "$num3 is Greatest"
+
+### //Reverse String
+#!/bin/bash
+echo "Enter steing"
+read s
+ans=""
+len=${#s}
+for (( i=$len -1 ; i >= 0 ; i-- ))
+do
+   ans="$ans${s:$i:1}"
+done
+echo "Recerse = $ans"
+
+
+
+
